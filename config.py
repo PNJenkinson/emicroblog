@@ -19,7 +19,7 @@ else:
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 SQLALCHEMY_RECORD_QUERIES = True
-WHOOSH_BASE = os.path.join(basedir, 'search.db')
+#WHOOSH_BASE = os.path.join(basedir, 'search.db')
 
 # Whoosh does not work on Heroku
 WHOOSH_ENABLED = os.environ.get('HEROKU') is None
@@ -50,4 +50,3 @@ ADMINS = ['paul@whitespaceventures.com']
 
 # pagination
 POSTS_PER_PAGE = 50
-MAX_SEARCH_RESULTS = 50
