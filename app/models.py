@@ -109,5 +109,5 @@ class Post(db.Model):
         return '<Post %r>' % (self.body)
 
 
-if enable_search:
-    whooshalchemy.whoosh_index(app, Post)
+#if enable_search:
+#    whooshalchemy.whoosh_index(app, Post)
