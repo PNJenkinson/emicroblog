@@ -1,16 +1,10 @@
 from hashlib import md5
 import re
 from app import db
-from app import app
 from config import WHOOSH_ENABLED
 
-import sys
-if sys.version_info >= (3, 0):
-    enable_search = False
-else:
-    enable_search = WHOOSH_ENABLED
-    if enable_search:
-        import flask_whooshalchemy
+
+
 
 
 followers = db.Table(
@@ -97,7 +91,6 @@ class User(db.Model):
 
 
 class Post(db.Model):
-    __searchable__ = ['body']
 
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
@@ -109,5 +102,3 @@ class Post(db.Model):
         return '<Post %r>' % (self.body)
 
 
-#if enable_search:
-#    whooshalchemy.whoosh_index(app, Post)
